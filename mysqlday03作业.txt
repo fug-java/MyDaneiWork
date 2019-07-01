@@ -1,0 +1,37 @@
+10.求LIU老师所授课程的每门课程的平均成绩
+SELECT C.Cname 所授课程 ,AVG(sc.GRADE) 平均分 FROM
+SC LEFT JOIN c on sc.cno = c.cno WHERE c.TEACHER = 'LIU老师'
+
+11.统计每门课程的学生选修人数（超过2人的课程才统计）。显示课程号和人数，查询结果按人数降序排序
+若人数相同，按课程号升序排列
+SELECT Cno 课程号,COUNT(Sno) 人数 FROM
+SC GROUP BY Cno HAVING COUNT(*)>2 
+ORDER BY 2 , cno DESC
+
+12.检索学号比小华大而年龄比他小的学生姓名
+SELECT sname FROM s
+WHERE AGE<(SELECT AGE FROM s 
+WHERE Sname = '小华') and Sno>(SELECT Sno FROM s
+WHERE Sname = '小华')
+
+13.在表sc中检索成绩为空值的学生学号和课程号
+SELECT sno 学号, cno 课程号 FROM sc
+WHERE GRADE IS NULL
+
+14.检索姓名以小打头的所有学生的姓名和年龄
+SELECT sname 姓名, age 年龄 FROM s
+WHERE Sname LIKE '小%'
+
+15.求年龄大于女学生平均年龄的男学生姓名和年龄
+SELECT sname 姓名, age 年龄 FROM s
+WHERE SEX = 'M' AND AGE>(SELECT AVG(AGE) FROM s
+WHERE SEX = 'F')
+
+16.求年龄大于所有女学生年龄的男学生姓名和年龄
+SELECT sname 姓名, age 年龄 FROM s
+WHERE SEX = 'M' AND AGE>(SELECT AGE FROM s
+WHERE SEX = 'F'
+
+17.往关系c中插入一个课程元组('08','VC++','CICI');
+INSERT INTO C VALUES ('08','VC++','CICI')
+
