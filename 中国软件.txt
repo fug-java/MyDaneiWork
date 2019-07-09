@@ -1,0 +1,173 @@
+
+1.面向对象的特性:
+
+继承,封装,多态
+
+2.java的基础数据类型:
+
+字节:byte
+字符:char
+短整:short
+整数:int
+长整:long
+单精:float
+双精:double
+布尔:boolean
+
+
+3.ArrayList 底层实现是一个: 线程不安全的数组
+vector 底层实现是一个:线程安全的数组
+
+
+4.jsp内置对象包括:
+request
+response
+session
+application
+out
+pagecontext
+config
+page
+exception
+
+5.Hibernate中的一级缓存是通过:实体对象 ;中的一个: session 来实现的
+
+-------------
+
+
+sql:
+
+1. 全国所有人员成本最高的第10名到第20名:
+SELECT * FROM tableb ORDER BY colg DESC LIMIT 10,20
+
+
+2.所有人员成本总和大于2000的市,按照成本合计出由高到低的顺序
+
+SELECT * FROM tableb GROUP BY cola HAVING SUM(colg)>2000
+
+
+
+三.简答题
+
+1.java实现多线程的方式有哪些? 实现线程同步的方式有哪些?
+
+(1)实现Runnable接口，并实现接口的run()方法
+
+(2)继承Thread类，重写run方法
+
+(3)实现Callable接口，重写call()方法
+
+
+2.简述String 与stringBuffer的区别
+
+一个变量和常量的关系.StringBuffer对象的内容可以修改;
+而字符串对象一旦产生后就不可以被修改，重新赋值其实是两个对象
+
+
+3.根据你对java访问修饰符的理解,简述共有几种访问修饰符,它们的区别是什么?
+
+修饰符	当前类	同一包内	子孙类(同一包)	子孙类(不同包)	其他包
+public	Y	Y	Y	Y	Y
+protected	Y	Y	Y	Y/N（说明）	N
+default	Y	Y	Y	N	N
+private	Y	N	N	N	N
+
+
+4.java是否支持多继承?抽象类与抽象接口的区别有哪些?
+
+不支持多继承,但一个类能实现多个接口
+
+(1).(不能为普通方法提供方法体)接口里只能包含抽象方法，静态方法和默认方法（加default），不能为普通方法提供方法实现，抽象类则完全可以包含普通方法，接口中的普通方法默认为抽象方法。
+
+(2).(public static final 赋值)抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是 public static final 类型的，并且必须赋值，否则通不过编译。
+
+(3)(是否有构造器)接口不能包含构造器，抽象类可以包含构造器，抽象类里的构造器并不是用于创建对象，而是让其子类调用这些构造器来完成属于抽象类的初始化操作。
+
+(4).(不能包含初始化块)接口里不能包含初始化块，但抽象类里完全可以包含初始化块。
+
+(5).(继承一个抽象类、多个接口)一个类只能继承一个抽象类，而一个类却可以实现多个接口。
+
+
+5.Reponse.sendRedirect()和forward()的区别?
+
+sendRedirect实现请求重定向，forward实现的是请求转发。
+
+
+6.数据库改造?
+
+不知道实际需求,没有改造方向
+
+
+四.程序设计题
+
+1.列举你所知道的算法,并实现.
+
+//冒泡排序
+public void sort(Integer[] arr) {
+        if (arr.length <= 1) return;     
+        for (int i = 0; i < arr.length; ++i) {
+            boolean flag = false;
+            for (int j = 0; j < arr.length - i - 1; ++j) {        
+                if (arr[j] > arr[j + 1]) {       
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    flag = true;
+                }
+            }
+            if (!flag) break;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
